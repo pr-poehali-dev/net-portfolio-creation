@@ -6,14 +6,17 @@ import Icon from '@/components/ui/icon';
 
 export default function Index() {
   const skills = [
-    { name: 'C#', level: 95, icon: 'Code' },
-    { name: '.NET Core', level: 90, icon: 'Server' },
-    { name: 'ASP.NET', level: 88, icon: 'Globe' },
-    { name: 'Entity Framework', level: 85, icon: 'Database' },
-    { name: 'SQL Server', level: 92, icon: 'Database' },
-    { name: 'Azure', level: 80, icon: 'Cloud' },
-    { name: 'Docker', level: 75, icon: 'Package' },
-    { name: 'Git', level: 90, icon: 'GitBranch' }
+    { name: 'C#', icon: 'Code' },
+    { name: 'ASP.NET', icon: 'Globe' },
+    { name: 'Entity Framework', icon: 'Database' },
+    { name: 'PostgreSQL', icon: 'Database' },
+    { name: 'Kafka', icon: 'Zap' },
+    { name: 'Kubernetes', icon: 'Container' },
+    { name: 'Redis', icon: 'Zap' },
+    { name: 'Gitlab', icon: 'GitBranch' },
+    { name: 'Docker', icon: 'Package' },
+    { name: 'Prometheus', icon: 'Activity' },
+    { name: 'Nginx', icon: 'Server' }
   ];
 
   const experience = [
@@ -164,14 +167,10 @@ export default function Index() {
             {skills.map((skill, index) => (
               <Card key={skill.name} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-3">
-                      <Icon name={skill.icon} className="h-6 w-6 text-primary" />
-                      <h3 className="font-semibold">{skill.name}</h3>
-                    </div>
-                    <span className="text-sm font-medium text-accent">{skill.level}%</span>
+                  <div className="flex items-center space-x-3">
+                    <Icon name={skill.icon} className="h-6 w-6 text-primary" />
+                    <h3 className="font-semibold">{skill.name}</h3>
                   </div>
-                  <Progress value={skill.level} className="h-2" />
                 </CardContent>
               </Card>
             ))}
