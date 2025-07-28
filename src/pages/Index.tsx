@@ -1,14 +1,282 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Progress } from '@/components/ui/progress';
+import Icon from '@/components/ui/icon';
 
-const Index = () => {
+export default function Index() {
+  const skills = [
+    { name: 'C#', level: 95, icon: 'Code' },
+    { name: '.NET Core', level: 90, icon: 'Server' },
+    { name: 'ASP.NET', level: 88, icon: 'Globe' },
+    { name: 'Entity Framework', level: 85, icon: 'Database' },
+    { name: 'SQL Server', level: 92, icon: 'Database' },
+    { name: 'Azure', level: 80, icon: 'Cloud' },
+    { name: 'Docker', level: 75, icon: 'Package' },
+    { name: 'Git', level: 90, icon: 'GitBranch' }
+  ];
+
+  const experience = [
+    {
+      title: 'Senior .NET Developer',
+      company: 'Microsoft Solutions',
+      period: '2021 - Present',
+      description: 'Разработка высоконагруженных веб-приложений на .NET Core, микросервисная архитектура'
+    },
+    {
+      title: '.NET Developer',
+      company: 'TechCorp',
+      period: '2019 - 2021',
+      description: 'Создание корпоративных решений на ASP.NET MVC, интеграция с внешними API'
+    },
+    {
+      title: 'Junior .NET Developer',
+      company: 'StartupIT',
+      period: '2018 - 2019',
+      description: 'Участие в разработке CRM-системы, изучение best practices'
+    }
+  ];
+
+  const projects = [
+    {
+      title: 'E-commerce Platform',
+      description: 'Платформа электронной коммерции с микросервисной архитектурой',
+      tech: ['C#', '.NET Core', 'SQL Server', 'Azure'],
+      github: '#'
+    },
+    {
+      title: 'CRM System',
+      description: 'Система управления взаимоотношениями с клиентами',
+      tech: ['ASP.NET', 'Entity Framework', 'Angular'],
+      github: '#'
+    },
+    {
+      title: 'API Gateway',
+      description: 'Шлюз для управления микросервисами и аутентификации',
+      tech: ['.NET Core', 'Docker', 'JWT', 'Redis'],
+      github: '#'
+    }
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-light-gray to-white">
+      {/* Header */}
+      <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-backdrop-blur">
+        <div className="container flex h-16 items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <Icon name="Code" className="h-6 w-6 text-primary" />
+            <span className="text-xl font-bold">.NET Developer Portfolio</span>
+          </div>
+          <nav className="hidden md:flex items-center space-x-6">
+            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">О себе</a>
+            <a href="#skills" className="text-sm font-medium hover:text-primary transition-colors">Навыки</a>
+            <a href="#experience" className="text-sm font-medium hover:text-primary transition-colors">Опыт</a>
+            <a href="#projects" className="text-sm font-medium hover:text-primary transition-colors">Проекты</a>
+            <Button>Скачать резюме</Button>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto text-center">
+          <div className="animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              .NET Developer
+            </h1>
+            <p className="text-xl text-medium-gray mb-8 max-w-2xl mx-auto">
+              Создаю современные веб-приложения и API с использованием Microsoft технологий. 
+              Специализируюсь на высоконагруженных системах и микросервисной архитектуре.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-primary hover:bg-primary/90">
+                <Icon name="Mail" className="mr-2 h-4 w-4" />
+                Связаться
+              </Button>
+              <Button size="lg" variant="outline">
+                <Icon name="Github" className="mr-2 h-4 w-4" />
+                GitHub
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-16 px-4 bg-white">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Обо мне</h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-lg text-medium-gray mb-6">
+                Опытный .NET разработчик с более чем 5-летним опытом создания корпоративных решений. 
+                Увлечен современными технологиями и постоянно изучаю новые подходы в разработке.
+              </p>
+              <p className="text-lg text-medium-gray mb-6">
+                Специализируюсь на разработке масштабируемых веб-приложений, RESTful API и микросервисов. 
+                Имею опыт работы с облачными платформами и DevOps практиками.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="secondary">5+ лет опыта</Badge>
+                <Badge variant="secondary">15+ проектов</Badge>
+                <Badge variant="secondary">Agile/Scrum</Badge>
+                <Badge variant="secondary">Team Lead</Badge>
+              </div>
+            </div>
+            <div className="relative">
+              <Card className="transform hover:scale-105 transition-transform">
+                <CardContent className="p-6">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Icon name="User" className="h-8 w-8 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold">Александр Иванов</h3>
+                      <p className="text-medium-gray">Senior .NET Developer</p>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center text-sm text-medium-gray">
+                      <Icon name="MapPin" className="h-4 w-4 mr-2" />
+                      Москва, Россия
+                    </div>
+                    <div className="flex items-center text-sm text-medium-gray">
+                      <Icon name="Mail" className="h-4 w-4 mr-2" />
+                      alexander.dev@email.com
+                    </div>
+                    <div className="flex items-center text-sm text-medium-gray">
+                      <Icon name="Phone" className="h-4 w-4 mr-2" />
+                      +7 (999) 123-45-67
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-16 px-4 bg-light-gray">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Технические навыки</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {skills.map((skill, index) => (
+              <Card key={skill.name} className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <Icon name={skill.icon} className="h-6 w-6 text-primary" />
+                      <h3 className="font-semibold">{skill.name}</h3>
+                    </div>
+                    <span className="text-sm font-medium text-accent">{skill.level}%</span>
+                  </div>
+                  <Progress value={skill.level} className="h-2" />
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-16 px-4 bg-white">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Опыт работы</h2>
+          <div className="space-y-8">
+            {experience.map((job, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div>
+                      <CardTitle className="text-xl text-primary">{job.title}</CardTitle>
+                      <h4 className="text-lg font-semibold text-medium-gray">{job.company}</h4>
+                    </div>
+                    <Badge variant="outline" className="mt-2 md:mt-0">
+                      <Icon name="Calendar" className="h-3 w-3 mr-1" />
+                      {job.period}
+                    </Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-medium-gray">{job.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-16 px-4 bg-light-gray">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Избранные проекты</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow group">
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    <span className="text-primary">{project.title}</span>
+                    <Button size="sm" variant="ghost" className="opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Icon name="Github" className="h-4 w-4" />
+                    </Button>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-medium-gray mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <Badge key={tech} variant="secondary" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-16 px-4 bg-primary text-white">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Готов к новым проектам</h2>
+          <p className="text-xl mb-8 opacity-90">
+            Ищу интересные задачи и возможности для профессионального роста
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" variant="secondary">
+              <Icon name="Mail" className="mr-2 h-4 w-4" />
+              Написать письмо
+            </Button>
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary">
+              <Icon name="Download" className="mr-2 h-4 w-4" />
+              Скачать резюме
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-4 bg-dark-gray text-white">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm opacity-70">© 2024 Александр Иванов. Все права защищены.</p>
+            <div className="flex space-x-4 mt-4 md:mt-0">
+              <a href="#" className="hover:text-primary transition-colors">
+                <Icon name="Github" className="h-5 w-5" />
+              </a>
+              <a href="#" className="hover:text-primary transition-colors">
+                <Icon name="Linkedin" className="h-5 w-5" />
+              </a>
+              <a href="#" className="hover:text-primary transition-colors">
+                <Icon name="Mail" className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
-};
-
-export default Index;
+}

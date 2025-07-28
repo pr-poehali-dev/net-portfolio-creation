@@ -61,7 +61,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// .NET Portfolio colors
+				'microsoft-blue': '#007ACC',
+				'bright-orange': '#FF6B35',
+				'dark-gray': '#2D3748',
+				'light-gray': '#F7FAFC',
+				'medium-gray': '#718096'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
