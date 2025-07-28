@@ -21,22 +21,38 @@ export default function Index() {
 
   const experience = [
     {
-      title: 'Senior .NET Developer',
-      company: 'Microsoft Solutions',
-      period: '2021 - Present',
-      description: 'Разработка высоконагруженных веб-приложений на .NET Core, микросервисная архитектура'
+      title: '.NET разработчик',
+      company: 'Тинькофф',
+      period: '2023 - настоящее время',
+      description: 'Проектировал и разрабатывал с нуля приложение из 2 ASP.NET сервисов, взаимодействующих по Kafka и проинтегрированных с большим количеством внутренних сервисов компании через REST и Kafka.',
+      achievements: [
+        'Участвовал в декомпозиции эпика и планировании сроков',
+        'Продумывал высокоуровневую архитектуру приложения и проектировал реализацию сервисов',
+        'Участвовал в постепенном бесшовном переносе трафика со старого приложения',
+        'Настраивал PostgreSQL, Kafka, Kubernetes и NGinx',
+        'Реализовал сбор кастомных метрик и настраивал дашборды в Grafana',
+        'Проресерчил и реализовал решения для проверки ЭЦП'
+      ]
     },
     {
-      title: '.NET Developer',
-      company: 'TechCorp',
-      period: '2019 - 2021',
-      description: 'Создание корпоративных решений на ASP.NET MVC, интеграция с внешними API'
+      title: '.NET разработчик',
+      company: 'Тинькофф',
+      period: '2022 - 2023',
+      description: 'Разрабатывал и поддерживал приложение из нескольких микросервисов на платформе ASP.NET, взаимодействующих через Kafka и через REST.',
+      achievements: [
+        'Участвовал в вынесении микросервисов из монолита',
+        'Настраивал в GitLab CI сборку Docker образов и деплой в Kubernetes',
+        'Настраивал распределённый кэш и блокировки с использованием Redis',
+        'Реализовал решение для фича-флагов и выступал с ним на 2 митапах',
+        'Выступал в роли ответственного за фичи',
+        'Участвовал в разборе инцидентов в продакшене'
+      ]
     },
     {
-      title: 'Junior .NET Developer',
-      company: 'StartupIT',
-      period: '2018 - 2019',
-      description: 'Участие в разработке CRM-системы, изучение best practices'
+      title: '.NET/Angular Fullstack',
+      company: 'Тинькофф',
+      period: '2022',
+      description: 'Fullstack разработка с использованием .NET и Angular технологий.'
     }
   ];
 
@@ -198,7 +214,17 @@ export default function Index() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-medium-gray">{job.description}</p>
+                  <p className="text-medium-gray mb-4">{job.description}</p>
+                  {job.achievements && (
+                    <ul className="space-y-2">
+                      {job.achievements.map((achievement, i) => (
+                        <li key={i} className="text-sm text-medium-gray flex items-start">
+                          <Icon name="ChevronRight" className="h-4 w-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </CardContent>
               </Card>
             ))}
