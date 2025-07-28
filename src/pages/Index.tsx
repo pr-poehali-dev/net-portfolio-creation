@@ -56,26 +56,7 @@ export default function Index() {
     }
   ];
 
-  const projects = [
-    {
-      title: 'E-commerce Platform',
-      description: 'Платформа электронной коммерции с микросервисной архитектурой',
-      tech: ['C#', '.NET Core', 'SQL Server', 'Azure'],
-      github: '#'
-    },
-    {
-      title: 'CRM System',
-      description: 'Система управления взаимоотношениями с клиентами',
-      tech: ['ASP.NET', 'Entity Framework', 'Angular'],
-      github: '#'
-    },
-    {
-      title: 'API Gateway',
-      description: 'Шлюз для управления микросервисами и аутентификации',
-      tech: ['.NET Core', 'Docker', 'JWT', 'Redis'],
-      github: '#'
-    }
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-light-gray to-white">
@@ -90,7 +71,7 @@ export default function Index() {
             <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">О себе</a>
             <a href="#skills" className="text-sm font-medium hover:text-primary transition-colors">Навыки</a>
             <a href="#experience" className="text-sm font-medium hover:text-primary transition-colors">Опыт</a>
-            <a href="#projects" className="text-sm font-medium hover:text-primary transition-colors">Проекты</a>
+
             <Button>Скачать резюме</Button>
           </nav>
         </div>
@@ -232,36 +213,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-16 px-4 bg-light-gray">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Избранные проекты</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow group">
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    <span className="text-primary">{project.title}</span>
-                    <Button size="sm" variant="ghost" className="opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Icon name="Github" className="h-4 w-4" />
-                    </Button>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-medium-gray mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Contact Section */}
       <section className="py-16 px-4 bg-primary text-white">
